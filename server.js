@@ -21,6 +21,8 @@ app.use(require("./routes/api.js"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budget", {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  useUnifiedTopology: true
 })
   .then(() => app.listen(process.env.PORT || 3000))
+  .catch(err => console.log(err))
